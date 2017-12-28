@@ -826,16 +826,17 @@ void DataManager::SetDefaultValues()
 #else
 	mConst.SetValue("tw_has_boot_slots", "0");
 #endif
-
 #ifdef TW_NO_LEGACY_PROPS
 	LOGINFO("TW_NO_LEGACY_PROPS := true\n");
+	mConst.SetValue("tw_enable_legacy_props", "0");
 #endif
-
 #ifdef TW_OEM_BUILD
 	LOGINFO("TW_OEM_BUILD := true\n");
 	mConst.SetValue("tw_oem_build", "1");
+	mConst.SetValue("tw_enable_legacy_props", "0");
 #else
 	mConst.SetValue("tw_oem_build", "0");
+	mPersist.SetValue("tw_enable_legacy_props", "0");
 #endif
 
         mData.SetValue("tw_enable_adb_backup", "0");
